@@ -2,114 +2,112 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#111019">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="pranav">
 <link rel="manifest" href="manifest.json">
-<title>pranav — Legal Research Workspace</title>
+<title>pranav — PDF & Canvas</title>
 <style>
-:root{color-scheme:dark;--bg:#111019;--panel:#191824;--panel2:#211f2e;--line:#343144;--text:#f3f0fa;--muted:#aaa4bb;--accent:#b58cff;--accent2:#8d6be8;--good:#77d6ad}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:15px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-button,input,textarea{font:inherit}button{cursor:pointer;border:1px solid var(--line);border-radius:10px;padding:10px 13px;background:var(--panel2);color:var(--text)}button.primary{background:var(--accent2);border-color:var(--accent2);color:white}button:disabled{opacity:.4;cursor:not-allowed}
-header{height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 18px;border-bottom:1px solid var(--line);background:#151320;position:sticky;top:0;z-index:5}
-.brand{font-weight:750;letter-spacing:.3px;font-size:20px}.brand span{color:var(--accent)}
-header small{color:var(--muted)}.shell{display:grid;grid-template-columns:250px minmax(0,1fr);min-height:calc(100vh - 64px)}
-aside{border-right:1px solid var(--line);padding:18px 14px;background:#151320}
-.navtitle{font-size:11px;text-transform:uppercase;letter-spacing:1.3px;color:var(--muted);margin:16px 8px 8px}
-.nav{display:flex;gap:10px;align-items:center;width:100%;text-align:left;margin:4px 0;background:transparent;border-color:transparent}.nav.active,.nav:hover{background:var(--panel2);border-color:var(--line)}
-main{padding:22px;min-width:0}.topline{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:18px}
-h1{font-size:25px;margin:0 0 5px}p.sub{color:var(--muted);margin:0}.actions{display:flex;gap:8px;flex-wrap:wrap}
-.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-bottom:18px}.stat,.panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:15px}.stat b{display:block;font-size:23px;margin-top:5px}.muted{color:var(--muted);font-size:13px}
-.workspace{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(300px,.9fr);gap:14px;align-items:start}
-.panelhead{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:12px}.panelhead h2{font-size:16px;margin:0}
-.drop{border:1px dashed #65558a;border-radius:12px;padding:22px;text-align:center;background:#1b1927;color:var(--muted);margin-bottom:14px}
-.drop strong{display:block;color:var(--text);margin-bottom:5px}
-.doclist{display:flex;flex-direction:column;gap:7px}.doc{display:flex;align-items:center;gap:9px;padding:10px;border-radius:10px;background:var(--panel2);border:1px solid var(--line);width:100%;text-align:left}.doc.selected{border-color:var(--accent)}
-.reader{min-height:360px;max-height:66vh;overflow:auto;background:#242230;border-radius:10px;padding:12px}
-.page{background:white;color:#222;margin:0 auto 14px;padding:28px 30px;max-width:680px;min-height:250px;box-shadow:0 2px 12px #0005;line-height:1.5;white-space:pre-wrap;user-select:text}
-.page .page-label{font-size:10px;color:#777;border-bottom:1px solid #ddd;margin-bottom:12px;padding-bottom:5px}
-.empty{padding:30px 15px;text-align:center;color:var(--muted)}
-.cards{display:flex;flex-direction:column;gap:10px}.excerpt{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:12px}.excerpt blockquote{margin:8px 0;color:#e9e1fa;line-height:1.5;border-left:3px solid var(--accent);padding-left:10px;white-space:pre-wrap}.excerpt textarea{width:100%;background:#151320;color:var(--text);border:1px solid var(--line);border-radius:8px;padding:9px;min-height:65px;resize:vertical}.excerpt .meta{display:flex;justify-content:space-between;gap:8px;color:var(--muted);font-size:11px;margin-top:8px}
-input[type=file]{display:none}.toolbar{display:flex;gap:8px;flex-wrap:wrap}.search{width:100%;background:#151320;border:1px solid var(--line);color:var(--text);border-radius:9px;padding:10px;margin-bottom:10px}
-.notice{padding:10px 12px;border-radius:10px;background:#211f2e;color:var(--muted);font-size:12px;margin-top:12px}
-footer{padding:20px;color:var(--muted);font-size:11px;text-align:center}
-@media(max-width:850px){.shell{grid-template-columns:1fr}aside{border-right:0;border-bottom:1px solid var(--line);padding:8px 12px;display:flex;gap:6px;overflow:auto}.navtitle{display:none}.nav{width:auto;white-space:nowrap;margin:0}.workspace{grid-template-columns:1fr}.reader{max-height:55vh}main{padding:15px}.stats{gap:7px}.stat{padding:10px}.stat b{font-size:19px}}
-@media(max-width:430px){header{padding:0 12px}.stats{grid-template-columns:repeat(3,1fr)}.stat .muted{font-size:10px}}
+:root{color-scheme:dark;--bg:#111019;--panel:#1b1926;--panel2:#242132;--line:#393449;--text:#f4f0fb;--muted:#aaa3b9;--accent:#aa83f3;--accent2:#7955c8}
+*{box-sizing:border-box}html,body{height:100%;margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;overflow:hidden}
+button,input{font:inherit}button{background:var(--panel2);border:1px solid var(--line);color:var(--text);border-radius:9px;padding:9px 12px}button.primary{background:var(--accent2);border-color:var(--accent2)}
+header{height:54px;display:flex;align-items:center;justify-content:space-between;padding:0 14px;border-bottom:1px solid var(--line);background:#151320}
+.logo{font-size:20px;font-weight:800}.logo span{color:var(--accent)}.header-actions{display:flex;gap:7px;align-items:center}
+#app{height:calc(100dvh - 54px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);min-width:0}
+.pane{min-width:0;min-height:0;display:flex;flex-direction:column}.pane:first-child{border-right:2px solid #51466c}
+.panehead{height:48px;flex:none;display:flex;align-items:center;justify-content:space-between;padding:0 12px;background:#191724;border-bottom:1px solid var(--line);gap:8px}
+.panehead strong{font-size:14px}.tools{display:flex;gap:5px;align-items:center}.tools button{padding:7px 9px;font-size:12px}
+#pdfArea{flex:1;min-height:0;overflow:auto;background:#252331;padding:14px;position:relative}
+#placeholder{height:100%;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--muted);padding:25px}
+#pageWrap{position:relative;margin:0 auto 18px;background:white;box-shadow:0 5px 22px #0008;width:max-content;max-width:100%}
+#pdfCanvas{display:block;max-width:100%;height:auto}
+#textLayer{position:absolute;inset:0;overflow:hidden;line-height:1;opacity:1;user-select:text;-webkit-user-select:text}
+#textLayer span{position:absolute;white-space:pre;color:transparent;transform-origin:0 0;cursor:text}
+#textLayer span::selection{background:#8c6bd688;color:transparent}
+#canvasArea{flex:1;min-height:0;overflow:auto;position:relative;background-color:#171521;background-image:radial-gradient(#393448 0.8px,transparent .8px);background-size:19px 19px;touch-action:pan-x pan-y}
+#board{position:relative;min-width:100%;min-height:100%;width:1800px;height:1300px}
+.card{position:absolute;width:260px;min-height:100px;background:#282536;border:1px solid #65548a;border-radius:10px;box-shadow:0 5px 18px #0005;overflow:hidden;touch-action:none}
+.card.selected{outline:2px solid var(--accent)}
+.cardhead{height:31px;background:#342d47;display:flex;align-items:center;justify-content:space-between;padding:0 8px;font-size:11px;color:#d9cafa;cursor:grab;touch-action:none}
+.cardhead button{padding:1px 6px;font-size:13px;border:0;background:transparent}
+.cardbody{padding:10px;white-space:pre-wrap;overflow-wrap:anywhere;font-size:13px;line-height:1.5;min-height:60px;user-select:text;touch-action:pan-y}
+.cardbody[contenteditable=true]{outline:none}
+.cardbody:empty:before{content:attr(data-placeholder);color:#8e879f}
+.card img{max-width:100%;display:block}
+#canvasHint{position:absolute;bottom:12px;left:12px;background:#201d2dcc;border:1px solid var(--line);padding:7px 10px;border-radius:8px;color:var(--muted);font-size:11px;pointer-events:none}
+#pdfInput,#backupInput{display:none}
+#docPicker{max-width:150px;background:#211e2c;color:var(--text);border:1px solid var(--line);border-radius:8px;padding:6px;font-size:12px}
+#status{font-size:11px;color:var(--muted);padding:5px 12px;background:#171521;border-top:1px solid var(--line)}
+@media(max-width:700px){header{height:48px}#app{height:calc(100dvh - 48px);grid-template-columns:1fr 1fr}.panehead{height:44px;padding:0 6px}.panehead strong{font-size:12px}.tools button{font-size:10px;padding:6px}.tools .wide{display:none}#pdfArea{padding:7px}#board{width:1200px;height:1100px}.card{width:220px}.logo{font-size:18px}}
+@media(orientation:portrait) and (max-width:700px){#app{grid-template-columns:1fr;grid-template-rows:1fr 1fr}.pane:first-child{border-right:0;border-bottom:2px solid #51466c}}
 </style>
 </head>
 <body>
-<header><div class="brand">pranav<span>.</span></div><small>PERSONAL LEGAL RESEARCH</small></header>
-<div class="shell">
-<aside>
-  <button class="nav active" data-view="workspace">▦ Workspace</button>
-  <button class="nav" data-view="library">▤ PDF Library</button>
-  <button class="nav" data-view="research">✧ Research extracts</button>
-</aside>
-<main>
-  <div class="topline">
-    <div><h1 id="heading">Research workspace</h1><p class="sub" id="subheading">Read, collect and organise passages from your legal documents.</p></div>
-    <div class="actions">
-      <label class="primary" style="display:inline-block;padding:10px 13px;border-radius:10px;background:var(--accent2);cursor:pointer" for="pdfInput">＋ Import PDF</label>
-      <input id="pdfInput" type="file" accept="application/pdf,.pdf">
-      <button id="backupBtn">Export backup</button>
-    </div>
+<header>
+ <div class="logo">pranav<span>.</span></div>
+ <div class="header-actions">
+  <label for="pdfInput"><button class="primary" type="button" onclick="document.getElementById('pdfInput').click()">＋ PDF</button></label>
+  <input id="pdfInput" type="file" accept="application/pdf,.pdf">
+  <button id="backupBtn">Backup</button>
+  <button id="restoreBtn">Restore</button><input id="backupInput" type="file" accept="application/json">
+ </div>
+</header>
+<div id="app">
+ <section class="pane">
+  <div class="panehead">
+   <strong>PDF</strong>
+   <div class="tools">
+    <select id="docPicker" aria-label="Choose PDF"><option value="">No PDF open</option></select>
+    <button id="prev">‹</button><span id="pageLabel" style="font-size:11px;color:var(--muted)">—</span><button id="next">›</button>
+    <button id="zoomOut">−</button><button id="zoomIn">＋</button>
+   </div>
   </div>
-  <section class="stats">
-    <div class="stat"><span class="muted">Documents</span><b id="docCount">0</b></div>
-    <div class="stat"><span class="muted">Extracts</span><b id="extractCount">0</b></div>
-    <div class="stat"><span class="muted">Storage</span><b>Local</b></div>
-  </section>
-  <div class="workspace">
-    <section class="panel" id="libraryPanel">
-      <div class="panelhead"><h2>Document library</h2><span class="muted">Stored on this device</span></div>
-      <div class="drop" id="dropZone"><strong>Bring in a judgment or order</strong>Choose a PDF from Files, or drag it here.</div>
-      <div class="doclist" id="docList"><div class="empty">No documents yet. Import a PDF to begin.</div></div>
-      <div class="notice">Your PDFs and notes are saved in this browser's local database. Use Export backup regularly, especially before clearing Safari website data.</div>
-    </section>
-    <section class="panel">
-      <div class="panelhead"><h2 id="readerTitle">PDF reader</h2><span class="muted" id="pageInfo">No document open</span></div>
-      <input class="search" id="docSearch" placeholder="Search extracted text in this document…" disabled>
-      <div class="toolbar" style="margin-bottom:10px">
-        <button id="prevPage" disabled>← Previous</button><button id="nextPage" disabled>Next →</button>
-        <button id="addSelection" disabled>Add selected text</button>
-      </div>
-      <div class="reader" id="reader"><div class="empty">Import and open a PDF. Select text in the reader, then choose “Add selected text”.</div></div>
-      <div class="notice">First version: selectable text PDFs are supported. Scanned PDFs need OCR before their text can be selected. PDF rendering uses PDF.js from a public CDN on first load.</div>
-    </section>
+  <div id="pdfArea">
+   <div id="placeholder"><div><div style="font-size:34px">▤</div><b>Open a PDF</b><p>Choose a judgment or document.<br>Its pages appear here.</p></div></div>
+   <div id="pageWrap" hidden><canvas id="pdfCanvas"></canvas><div id="textLayer"></div></div>
   </div>
-  <section class="panel" style="margin-top:14px">
-    <div class="panelhead"><h2>Research extracts</h2><span class="muted">Linked to source document</span></div>
-    <div class="cards" id="extracts"><div class="empty">Selected passages will appear here.</div></div>
-  </section>
-  <footer>pranav · Personal workspace · Keep independent backups of important legal material.</footer>
-</main>
+  <div class="panehead" style="height:42px">
+   <div class="tools"><button id="addText" class="primary">Add selected text →</button><button id="addNote">＋ Note</button></div>
+   <span style="font-size:10px;color:var(--muted)">Select text, then add it</span>
+  </div>
+ </section>
+ <section class="pane">
+  <div class="panehead">
+   <strong>Writing canvas</strong>
+   <div class="tools"><button id="newNote" class="primary">＋ Note</button><button id="clearSelection">Deselect</button></div>
+  </div>
+  <div id="canvasArea"><div id="board"></div><div id="canvasHint">Select PDF text → Add selected text · Drag cards to move · Tap a card to edit</div></div>
+  <div id="status">Local workspace · Changes save automatically on this device</div>
+ </section>
 </div>
 <script type="module">
 import * as pdfjsLib from 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.4.168/pdf.min.mjs';
 pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.4.168/pdf.worker.min.mjs';
-const DB='pranav-legal-workspace', STORE='items';
-let db, docs=[], extracts=[], current=null, pdf=null, pageNum=1, pageText='';
-const $=id=>document.getElementById(id);
-function openDB(){return new Promise((resolve,reject)=>{const r=indexedDB.open(DB,1);r.onupgradeneeded=()=>r.result.createObjectStore(STORE,{keyPath:'id'});r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error)})}
-function all(){return new Promise((resolve,reject)=>{const r=db.transaction(STORE).objectStore(STORE).getAll();r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error)})}
-function put(x){return new Promise((resolve,reject)=>{const r=db.transaction(STORE,'readwrite').objectStore(STORE).put(x);r.onsuccess=resolve;r.onerror=()=>reject(r.error)})}
-function del(id){return new Promise((resolve,reject)=>{const r=db.transaction(STORE,'readwrite').objectStore(STORE).delete(id);r.onsuccess=resolve;r.onerror=()=>reject(r.error)})}
-const uid=()=>crypto.randomUUID();
-async function refresh(){const items=await all();docs=items.filter(x=>x.kind==='pdf');extracts=items.filter(x=>x.kind==='extract');$('docCount').textContent=docs.length;$('extractCount').textContent=extracts.length;renderDocs();renderExtracts()}
-function renderDocs(){const el=$('docList');el.innerHTML='';if(!docs.length){el.innerHTML='<div class="empty">No documents yet. Import a PDF to begin.</div>';return}docs.forEach(d=>{const b=document.createElement('button');b.className='doc'+(current?.id===d.id?' selected':'');b.innerHTML=`<span>📄</span><span style="min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1">${esc(d.name)}</span><span class="muted">${d.pages||'PDF'}</span>`;b.onclick=()=>openDoc(d.id);el.append(b)})}
-function renderExtracts(){const el=$('extracts');el.innerHTML='';if(!extracts.length){el.innerHTML='<div class="empty">Selected passages will appear here.</div>';return}extracts.slice().reverse().forEach(x=>{const card=document.createElement('article');card.className='excerpt';const q=document.createElement('blockquote');q.textContent=x.text;const title=document.createElement('div');title.style.fontWeight='650';title.textContent=x.sourceName+' · Page '+x.page;const ta=document.createElement('textarea');ta.placeholder='Your analysis or observation…';ta.value=x.note||'';ta.onchange=async()=>{x.note=ta.value;await put(x)};const meta=document.createElement('div');meta.className='meta';const stamp=document.createElement('span');stamp.textContent='Source passage';const remove=document.createElement('button');remove.textContent='Delete';remove.onclick=async()=>{await del(x.id);await refresh()};meta.append(stamp,remove);card.append(title,q,ta,meta);el.append(card)})}
+const DB='pranav-legal-workspace',STORE='items';
+let db,docs=[],current=null,pdf=null,pageNum=1,scale=1.25,items=[],selectedCard=null;
+const $=id=>document.getElementById(id),uid=()=>crypto.randomUUID();
+function openDB(){return new Promise((res,rej)=>{let r=indexedDB.open(DB,1);r.onupgradeneeded=()=>r.result.createObjectStore(STORE,{keyPath:'id'});r.onsuccess=()=>res(r.result);r.onerror=()=>rej(r.error)})}
+function all(){return new Promise((res,rej)=>{let r=db.transaction(STORE).objectStore(STORE).getAll();r.onsuccess=()=>res(r.result);r.onerror=()=>rej(r.error)})}
+function put(x){return new Promise((res,rej)=>{let r=db.transaction(STORE,'readwrite').objectStore(STORE).put(x);r.onsuccess=res;r.onerror=()=>rej(r.error)})}
+function del(id){return new Promise(res=>{let r=db.transaction(STORE,'readwrite').objectStore(STORE).delete(id);r.onsuccess=res})}
 function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
-async function importFile(file){if(!file||file.type!=='application/pdf'){alert('Please choose a PDF file.');return}const bytes=await file.arrayBuffer();let pages=0;try{const task=pdfjsLib.getDocument({data:bytes.slice(0)});const doc=await task.promise;pages=doc.numPages}catch(e){alert('This PDF could not be opened. It may be protected or damaged.');return}const d={id:uid(),kind:'pdf',name:file.name,size:file.size,pages,bytes:new Uint8Array(bytes),added:new Date().toISOString()};await put(d);await refresh();await openDoc(d.id)}
-async function openDoc(id){current=docs.find(d=>d.id===id);if(!current)return;try{pdf=await pdfjsLib.getDocument({data:current.bytes.slice(0)}).promise;pageNum=1;$('readerTitle').textContent=current.name;$('docSearch').disabled=false;$('prevPage').disabled=false;$('nextPage').disabled=false;$('addSelection').disabled=false;await renderPage();renderDocs()}catch(e){alert('Could not open this PDF in the reader.')}}
-async function renderPage(){const page=await pdf.getPage(pageNum);const viewport=page.getViewport({scale:1.25});const content=await page.getTextContent();pageText=content.items.map(i=>i.str).join(' ');const div=document.createElement('div');div.className='page';const label=document.createElement('div');label.className='page-label';label.textContent=`${current.name} — Page ${pageNum} of ${pdf.numPages}`;const text=document.createElement('div');text.textContent=content.items.map(i=>i.str).join(' ');text.style.userSelect='text';text.style.whiteSpace='pre-wrap';div.append(label,text);$('reader').innerHTML='';$('reader').append(div);$('pageInfo').textContent=`Page ${pageNum} / ${pdf.numPages}`}
-$('prevPage').onclick=async()=>{if(pdf&&pageNum>1){pageNum--;await renderPage()}};$('nextPage').onclick=async()=>{if(pdf&&pageNum<pdf.numPages){pageNum++;await renderPage()}};
-$('addSelection').onclick=async()=>{const selected=window.getSelection()?.toString().trim();if(!selected){alert('Select text in the PDF reader first.');return}await put({id:uid(),kind:'extract',text:selected,sourceId:current.id,sourceName:current.name,page:pageNum,note:'',created:new Date().toISOString()});await refresh();$('extracts').scrollIntoView({behavior:'smooth',block:'start'})};
-$('pdfInput').onchange=e=>importFile(e.target.files[0]);const dz=$('dropZone');dz.ondragover=e=>{e.preventDefault();dz.style.borderColor='var(--accent)'};dz.ondragleave=()=>dz.style.borderColor='';dz.ondrop=e=>{e.preventDefault();dz.style.borderColor='';importFile(e.dataTransfer.files[0])};
-$('docSearch').onkeydown=e=>{if(e.key==='Enter'){const q=e.target.value.toLowerCase();const idx=pageText.toLowerCase().indexOf(q);alert(idx>=0?`Found on current page ${pageNum}.`:'No match on the current page. This initial search checks the currently displayed page only.')}};
-$('backupBtn').onclick=async()=>{const items=await all();const blob=new Blob([JSON.stringify(items,(k,v)=>v instanceof Uint8Array?Array.from(v):v)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='pranav-backup-'+new Date().toISOString().slice(0,10)+'.json';a.click();URL.revokeObjectURL(a.href)};
-document.querySelectorAll('.nav').forEach(b=>b.onclick=()=>{document.querySelectorAll('.nav').forEach(n=>n.classList.remove('active'));b.classList.add('active');const v=b.dataset.view;$('heading').textContent=v==='workspace'?'Research workspace':v==='library'?'PDF library':'Research extracts';$('subheading').textContent=v==='research'?'Your collected passages and legal analysis.':'Read, collect and organise passages from your legal documents.';if(v==='research')$('extracts').scrollIntoView({behavior:'smooth'});else if(v==='library')$('libraryPanel').scrollIntoView({behavior:'smooth'})});
-try{db=await openDB();await refresh();if('serviceWorker'in navigator)navigator.serviceWorker.register('./sw.js').catch(()=>{});}catch(e){console.error(e);alert('Local storage could not be opened in this browser.')};
+async function refresh(){let allItems=await all();docs=allItems.filter(x=>x.kind==='pdf');items=allItems.filter(x=>x.kind==='canvas'||x.kind==='extract');let picker=$('docPicker'),old=picker.value;picker.innerHTML='<option value="">Choose PDF</option>'+docs.map(d=>`<option value="${d.id}">${esc(d.name)}</option>`).join('');if(current&&docs.some(d=>d.id===current.id))picker.value=current.id;else if(old&&docs.some(d=>d.id===old))picker.value=old;renderCards()}
+async function importPDF(file){if(!file||file.type!=='application/pdf'){alert('Choose a PDF file.');return}let bytes=new Uint8Array(await file.arrayBuffer());let d={id:uid(),kind:'pdf',name:file.name,bytes,pages:0,added:new Date().toISOString()};try{let p=await pdfjsLib.getDocument({data:bytes.slice()}).promise;d.pages=p.numPages}catch(e){alert('Could not open this PDF.');return}await put(d);await refresh();await openDoc(d.id)}
+async function openDoc(id){current=docs.find(d=>d.id===id);if(!current)return;pdf=await pdfjsLib.getDocument({data:current.bytes.slice()}).promise;pageNum=1;$('placeholder').hidden=true;$('pageWrap').hidden=false;await renderPage()}
+async function renderPage(){if(!pdf)return;let page=await pdf.getPage(pageNum),vp=page.getViewport({scale});let c=$('pdfCanvas'),ctx=c.getContext('2d');c.width=vp.width;c.height=vp.height;c.style.width=vp.width+'px';c.style.height=vp.height+'px';$('pageWrap').style.width=vp.width+'px';$('pageWrap').style.height=vp.height+'px';$('textLayer').style.width=vp.width+'px';$('textLayer').style.height=vp.height+'px';$('textLayer').innerHTML='';await page.render({canvasContext:ctx,viewport:vp}).promise;
+ let tc=await page.getTextContent();for(let it of tc.items){if(!it.str)continue;let tx=pdfjsLib.Util.transform(vp.transform,it.transform);let fontH=Math.hypot(tx[2],tx[3]);let span=document.createElement('span');span.textContent=it.str;span.style.left=tx[4]+'px';span.style.top=(tx[5]-fontH)+'px';span.style.fontSize=fontH+'px';span.style.fontFamily=it.fontName||'sans-serif';span.style.transform=`scaleX(${Math.max(.1,it.width*scale/(span.textContent.length*fontH*.5||1))})`;span.style.height=fontH+'px';$('textLayer').append(span)}
+ $('pageLabel').textContent=`${pageNum} / ${pdf.numPages}`}
+$('pdfInput').onchange=e=>importPDF(e.target.files[0]);$('docPicker').onchange=e=>openDoc(e.target.value);$('prev').onclick=()=>{if(pdf&&pageNum>1){pageNum--;renderPage()}};$('next').onclick=()=>{if(pdf&&pageNum<pdf.numPages){pageNum++;renderPage()}};$('zoomIn').onclick=()=>{scale=Math.min(2.5,scale+.15);renderPage()};$('zoomOut').onclick=()=>{scale=Math.max(.6,scale-.15);renderPage()};
+function addCard(kind,text,x,y,source={}){let item={id:uid(),kind,text,x,y,w:kind==='note'?270:280,note:'',created:new Date().toISOString(),...source};put(item).then(refresh);return item}
+function selectedText(){return window.getSelection()?.toString().trim()||''}
+$('addText').onclick=()=>{let text=selectedText();if(!text){alert('First select text on the PDF page.');return}let r=$('canvasArea').getBoundingClientRect();let x=$('canvasArea').scrollLeft+60+(items.length%4)*25,y=$('canvasArea').scrollTop+65+(items.length%7)*28;addCard('extract',text,x,y,{sourceName:current?.name||'PDF',page:pageNum})};
+$('addNote').onclick=$('newNote').onclick=()=>{let x=$('canvasArea').scrollLeft+70+(items.length%5)*22,y=$('canvasArea').scrollTop+70+(items.length%6)*25;addCard('note','',x,y)};
+$('clearSelection').onclick=()=>{window.getSelection()?.removeAllRanges();selectedCard=null;renderCards()};
+function renderCards(){let board=$('board');board.innerHTML='';items.forEach(item=>{let el=document.createElement('article');el.className='card'+(selectedCard===item.id?' selected':'');el.style.left=(item.x||40)+'px';el.style.top=(item.y||40)+'px';el.style.width=(item.w||270)+'px';let head=document.createElement('div');head.className='cardhead';let label=document.createElement('span');label.textContent=item.kind==='extract'?`${item.sourceName||'PDF'} · p.${item.page||1}`:'NOTE';let actions=document.createElement('span');let remove=document.createElement('button');remove.textContent='×';remove.onclick=async e=>{e.stopPropagation();await del(item.id);await refresh()};actions.append(remove);head.append(label,actions);let body=document.createElement('div');body.className='cardbody';body.contentEditable='true';body.spellcheck=true;body.textContent=item.text||'';body.dataset.placeholder=item.kind==='note'?'Write here…':'Extracted PDF text';body.oninput=()=>{item.text=body.innerText;put(item)};el.append(head,body);el.onpointerdown=()=>{selectedCard=item.id};head.onpointerdown=e=>{if(e.target.tagName==='BUTTON')return;e.preventDefault();selectedCard=item.id;let sx=e.clientX,sy=e.clientY,ox=item.x||40,oy=item.y||40;head.setPointerCapture(e.pointerId);const move=ev=>{item.x=ox+ev.clientX-sx;item.y=oy+ev.clientY-sy;el.style.left=item.x+'px';el.style.top=item.y+'px'};const up=()=>{head.removeEventListener('pointermove',move);head.removeEventListener('pointerup',up);put(item)};head.addEventListener('pointermove',move);head.addEventListener('pointerup',up,{once:true})};board.append(el)})}
+$('backupBtn').onclick=async()=>{let data=await all();let blob=new Blob([JSON.stringify(data,(k,v)=>v instanceof Uint8Array?{__bytes:Array.from(v)}:v)],{type:'application/json'});let a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='pranav-backup.json';a.click();URL.revokeObjectURL(a.href)};
+$('restoreBtn').onclick=()=>$('backupInput').click();$('backupInput').onchange=async e=>{let f=e.target.files[0];if(!f)return;let data=JSON.parse(await f.text());for(let x of data){if(x.bytes?.__bytes)x.bytes=new Uint8Array(x.bytes.__bytes);await put(x)}await refresh();alert('Backup restored.')};
+try{db=await openDB();await refresh();let first=docs[0];if(first)await openDoc(first.id);if('serviceWorker'in navigator)navigator.serviceWorker.register('./sw.js').catch(()=>{})}catch(e){console.error(e);alert('Could not access local storage.')}
 </script>
 </body></html>
