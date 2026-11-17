@@ -1,20 +1,19 @@
-# pranav — PDF thinking workspace
+# pranav — PDF + Freeform-style workspace (V6)
 
-An iPad-first, dark-mode, browser-based PDF + freeform notes workspace.
+This version keeps Apple Pencil input as raw freehand ink strokes. There is no handwriting-to-text conversion.
+
+## Right-side canvas
+- Freehand pen strokes with pressure-sensitive width when the browser reports Apple Pencil pressure.
+- Highlighter and broad-stroke eraser.
+- Ink colour and width controls.
+- Undo and redo for ink.
+- Freehand ink is saved locally in IndexedDB and included in workspace JSON export.
+- Double-click empty canvas to add a separate typed note object.
+- Drag and resize notes, excerpts and clipped image objects.
+- PDF area clipping creates a movable image object on the workspace.
 
 ## Run
-- Open `index.html` in a modern browser (PDF.js is loaded from a CDN, so the first run needs internet).
-- For PWA installation/offline shell caching, serve this folder over HTTPS or localhost.
-- On iPad Safari: open the hosted page, Share → Add to Home Screen.
+Open `index.html` in Safari or Chrome. PDF.js is loaded from a CDN, so initial PDF rendering needs internet. For PWA install/service worker, serve over HTTPS or localhost.
 
-## Included
-- Two-pane PDF and freeform workspace, adjustable split.
-- PDF page navigation and zoom.
-- Selectable PDF text layer; send selected text into movable excerpt cards.
-- Free-writing cards, edit-in-place, drag, resize, duplicate and delete.
-- IndexedDB local workspace persistence.
-- JSON workspace export.
-- Basic PWA manifest and service worker.
-
-## Important current limitations
-This is a functional foundation, not a claim of feature-for-feature LiquidText parity. In this build, PDF text extraction is supported; image-region clipping, Apple Pencil handwriting/ink, multi-document linking, cross-page excerpts, full-text search, and PDF annotation/highlight export are not implemented yet. PDF rendering and text selection depend on the PDF.js CDN being reachable.
+## Platform limitations
+This is a browser implementation, not Apple's native Freeform engine. Safari exposes Apple Pencil as Pointer Events on supported iPadOS versions, but advanced native Freeform capabilities such as full palm rejection tuning, hover, tilt/azimuth fidelity, native object connectors, collaboration and system-level PencilKit integration are not guaranteed. No OCR or handwriting conversion is performed on ink strokes.
