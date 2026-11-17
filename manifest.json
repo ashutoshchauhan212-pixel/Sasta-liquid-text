@@ -1,0 +1,10 @@
+{
+  "name": "pranav \u2014 Legal Research Workspace",
+  "short_name": "pranav",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#111019",
+  "theme_color": "#111019",
+  "description": "Personal offline-first legal research workspace",
+  "icons": []
+}
