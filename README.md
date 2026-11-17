@@ -1,19 +1,17 @@
-# pranav — PDF + Freeform-style workspace (V6)
+# pranav — PDF + Freeform workspace V7
 
-This version keeps Apple Pencil input as raw freehand ink strokes. There is no handwriting-to-text conversion.
+The right side is a freeform canvas, not a required note-card editor.
 
-## Right-side canvas
-- Freehand pen strokes with pressure-sensitive width when the browser reports Apple Pencil pressure.
-- Highlighter and broad-stroke eraser.
-- Ink colour and width controls.
-- Undo and redo for ink.
-- Freehand ink is saved locally in IndexedDB and included in workspace JSON export.
-- Double-click empty canvas to add a separate typed note object.
-- Drag and resize notes, excerpts and clipped image objects.
-- PDF area clipping creates a movable image object on the workspace.
+- Apple Pencil (pen pointer) draws directly onto the canvas as persistent ink strokes. No OCR, transcription or handwriting-to-text conversion.
+- Finger touch is reserved for scrolling/panning the canvas. This avoids accidental finger marks while writing with Pencil.
+- Cards and image/text objects sit above the ink layer and remain selectable/draggable.
+- Pencil, highlighter, eraser, undo/redo, colour and width controls.
+- Add independent typed text objects with `A Text`.
+- Crop rectangular image regions from the PDF and move them on the canvas.
+- Typed notes, excerpts, clipped images and ink persist locally; export includes ink.
 
-## Run
-Open `index.html` in Safari or Chrome. PDF.js is loaded from a CDN, so initial PDF rendering needs internet. For PWA install/service worker, serve over HTTPS or localhost.
+## Deployment
+Replace the existing GitHub Pages files with `index.html`, `manifest.json`, and `sw.js`. Commit and wait for Pages deployment. Then on iPad Safari, reload the site. If the old interface persists, close the old tab and reopen the Pages URL; optionally clear the site's cached website data.
 
-## Platform limitations
-This is a browser implementation, not Apple's native Freeform engine. Safari exposes Apple Pencil as Pointer Events on supported iPadOS versions, but advanced native Freeform capabilities such as full palm rejection tuning, hover, tilt/azimuth fidelity, native object connectors, collaboration and system-level PencilKit integration are not guaranteed. No OCR or handwriting conversion is performed on ink strokes.
+## Important platform boundary
+This is a web implementation, not Apple's native Freeform or PencilKit. It uses browser Pointer Events and pressure values where Safari supplies them. Native Freeform's exact palm rejection, tilt/azimuth, hover, collaboration and system integration cannot be guaranteed in a web app.

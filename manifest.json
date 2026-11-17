@@ -1,9 +1,1 @@
-{
-  "name": "pranav \u2014 PDF thinking workspace",
-  "short_name": "pranav",
-  "start_url": "./index.html",
-  "display": "standalone",
-  "background_color": "#101217",
-  "theme_color": "#111318",
-  "icons": []
-}
+{"name":"pranav — PDF + Freeform workspace","short_name":"pranav","start_url":"./index.html","display":"standalone","background_color":"#fbfbfa","theme_color":"#111318"}

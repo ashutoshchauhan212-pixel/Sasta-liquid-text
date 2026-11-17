@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <meta name="theme-color" content="#111318">
-<title>pranav — PDF thinking workspace</title>
+<title>pranav — PDF + Freeform workspace</title>
 <link rel="manifest" href="manifest.json">
 <style>
 :root{color-scheme:dark;--bg:#101217;--panel:#171a21;--panel2:#1d222b;--line:#303744;--muted:#929baa;--text:#edf0f5;--accent:#b34ce3;--accent2:#d27af5;--paper:#f4f1e9}
@@ -15,11 +15,14 @@ button,input{font:inherit}button{background:#252b36;border:1px solid #394252;col
 .pane{min-width:0;min-height:0;display:flex;flex-direction:column;background:var(--panel)}.panehead{height:43px;flex:none;border-bottom:1px solid var(--line);display:flex;align-items:center;padding:0 12px;gap:8px;background:#191d25}.panetitle{font-size:12px;text-transform:uppercase;letter-spacing:1px;font-weight:750;color:#c2c9d4;flex:1}.subtle{font-size:12px;color:var(--muted)}
 .splitter{background:#252b35;cursor:col-resize;position:relative}.splitter:after{content:"";position:absolute;left:2px;top:45%;height:40px;width:3px;border-radius:4px;background:#606979}
 .pdfcontrols{display:flex;align-items:center;gap:6px}.pdfcontrols input{width:48px;background:#101319;border:1px solid var(--line);color:white;border-radius:6px;padding:5px;text-align:center}.pdfscroll{flex:1;overflow:auto;background:#252a33;position:relative;padding:22px 18px 70px;overscroll-behavior:contain}.pagewrap{position:relative;margin:0 auto 20px;background:white;box-shadow:0 5px 24px #0008;width:max-content;max-width:100%}.pagewrap canvas{display:block;max-width:100%;height:auto}.textLayer{position:absolute;inset:0;overflow:hidden;line-height:1;opacity:.24;user-select:text;-webkit-user-select:text}.textLayer span{position:absolute;white-space:pre;color:transparent;transform-origin:0 0;cursor:text}.textLayer ::selection{background:#9c62d5aa;color:transparent}.empty{height:100%;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--muted);padding:30px}.emptybox{max-width:320px}.emptybox .big{font-size:42px;margin-bottom:12px}.emptybox h2{color:#e8eaf0;font-size:18px;margin:0 0 8px}.emptybox p{line-height:1.6}
-.workspace{flex:1;min-height:0;overflow:auto;position:relative;background-color:#12151b;background-image:radial-gradient(#343b48 1px,transparent 1px);background-size:22px 22px;touch-action:pan-x pan-y}.board{position:relative;min-width:1800px;min-height:1200px;width:3600px;height:2600px;transform-origin:0 0}.boardhint{position:absolute;left:28px;top:22px;color:#7e8796;font-size:12px;pointer-events:none}
+.workspace{flex:1;min-height:0;overflow:auto;position:relative;background-color:#fbfbfa;background-image:radial-gradient(#c9cbd0 1px,transparent 1px);background-size:22px 22px;touch-action:pan-x pan-y}.board{position:relative;min-width:1800px;min-height:1200px;width:3600px;height:2600px;transform-origin:0 0}.boardhint{position:absolute;left:28px;top:22px;color:#a1a5ad;font-size:12px;pointer-events:none}
 .card{position:absolute;width:270px;min-height:125px;background:#f3eddf;color:#25221e;border:1px solid #d8cdb9;border-radius:9px;box-shadow:0 8px 24px #0005;resize:both;overflow:auto;min-width:170px;min-height:90px}.card.note{background:#f7f3e9}.card.excerpt{background:#e9e2f5;border-color:#c7b4e4}.card.imagecard{background:#e5edf0}.cardhead{height:31px;display:flex;align-items:center;gap:6px;padding:0 8px;background:#0000000b;border-bottom:1px solid #00000018;cursor:grab;touch-action:none;user-select:none}.cardhead:active{cursor:grabbing}.cardkind{font-size:10px;letter-spacing:.8px;text-transform:uppercase;font-weight:800;opacity:.65;flex:1}.cardhead button{font-size:11px;padding:2px 6px;background:transparent;color:#37332e;border:0}.cardbody{padding:11px;outline:none;white-space:pre-wrap;line-height:1.45;font-size:13px;min-height:82px}.cardbody[contenteditable=true]:focus{outline:2px solid #b34ce355;outline-offset:-2px}.cardmeta{font-size:10px;color:#665d55;padding:0 11px 8px}.selectionbar{position:sticky;bottom:10px;margin:0 auto 0;width:max-content;max-width:95%;background:#242a35;border:1px solid #475164;border-radius:10px;padding:7px;display:flex;gap:7px;align-items:center;box-shadow:0 8px 25px #0008;z-index:4}.selectionbar span{font-size:11px;color:#c4cbd6}
 .status{height:25px;flex:none;background:#14171d;border-top:1px solid var(--line);display:flex;align-items:center;padding:0 12px;color:#8f98a8;font-size:11px;gap:14px}.status .right{margin-left:auto}
 #toast{position:fixed;bottom:38px;left:50%;transform:translateX(-50%);background:#2b3140;color:white;border:1px solid #596477;padding:9px 14px;border-radius:9px;opacity:0;pointer-events:none;transition:.2s;z-index:100}#toast.show{opacity:1}
-.card.imagecard{width:320px;min-height:140px;background:#202630;color:#eee;border-color:#4b5668}.card.imagecard .cardbody{padding:7px;min-height:70px}.cardbody img{display:block;max-width:100%;height:auto;object-fit:contain;user-select:none;-webkit-user-drag:none}#inkCanvas{position:absolute;left:0;top:0;width:3600px;height:2600px;z-index:2;pointer-events:none;touch-action:none}#inkCanvas.active{pointer-events:auto;cursor:crosshair}#inkCanvas{touch-action:none}#inkCanvas.eraser{cursor:cell}.panehead input[type=color]{cursor:pointer}.panehead input[type=range]{accent-color:var(--accent)}#clipOverlay{position:absolute;inset:0;z-index:5;display:none;cursor:crosshair;touch-action:none}#clipOverlay.active{display:block}#clipRect{position:absolute;border:2px dashed #b34ce3;background:#b34ce322;display:none;pointer-events:none}.toolactive{background:#71339a!important;border-color:#d27af5!important}
+.card.textobject{background:transparent;color:#202020;border:1px dashed transparent;box-shadow:none;min-height:50px;resize:both}.card.textobject .cardhead{background:transparent;border:0}.card.textobject .cardbody{font-size:20px;min-height:38px}.card.imagecard{width:320px;min-height:140px;background:#202630;color:#eee;border-color:#4b5668}.card.imagecard .cardbody{padding:7px;min-height:70px}.cardbody img{display:block;max-width:100%;height:auto;object-fit:contain;user-select:none;-webkit-user-drag:none}#inkCanvas{position:absolute;left:0;top:0;width:3600px;height:2600px;z-index:2;pointer-events:none;touch-action:pan-x pan-y}
+#inkCanvas.active{pointer-events:auto;cursor:crosshair}
+#inkCanvas{touch-action:pan-x pan-y}
+.card{z-index:3}#inkCanvas.eraser{cursor:cell}.panehead input[type=color]{cursor:pointer}.panehead input[type=range]{accent-color:var(--accent)}#clipOverlay{position:absolute;inset:0;z-index:5;display:none;cursor:crosshair;touch-action:none}#clipOverlay.active{display:block}#clipRect{position:absolute;border:2px dashed #b34ce3;background:#b34ce322;display:none;pointer-events:none}.toolactive{background:#71339a!important;border-color:#d27af5!important}
 @media(max-width:760px){.panehead{overflow-x:auto}.panehead button{white-space:nowrap}.panehead input[type=range]{min-width:55px}.topbar{height:50px;padding:0 8px;gap:6px}.brand{margin-right:2px}.docname{display:none}.toolbar button{padding:7px 8px;font-size:12px}.main{grid-template-columns:1fr;grid-template-rows:minmax(250px,48%) 6px minmax(250px,52%)}.splitter{cursor:row-resize}.splitter:after{left:45%;top:1px;width:40px;height:3px}.panehead{height:38px}.pdfscroll{padding:12px 8px 45px}.board{width:1800px;height:1300px}.workspace{touch-action:pan-x pan-y}.selectionbar{position:sticky;bottom:6px}}
 </style>
 </head>
@@ -52,10 +55,10 @@ button,input{font:inherit}button{background:#252b36;border:1px solid #394252;col
  <div class="splitter" id="splitter"></div>
  <section class="pane" id="workPane">
   <div class="panehead">
-   <div class="panetitle">Workspace</div>
+   <div class="panetitle">Freeform workspace</div>
    <span class="subtle" id="cardCount">0 items</span>
-   <button id="penTool" class="toolactive" title="Apple Pencil ink">✎ Pen</button>
-   <button id="highlighterTool" title="Highlighter">▰</button>
+   <button id="penTool" class="toolactive" title="Apple Pencil ink">✎ Pencil</button>
+   <button id="textObjectTool" title="Add text object">A Text</button><button id="highlighterTool" title="Highlighter">▰</button>
    <button id="eraserTool" title="Pixel eraser">⌫</button>
    <button id="undoInk" title="Undo">↶</button>
    <button id="redoInk" title="Redo">↷</button>
@@ -89,15 +92,15 @@ function renderCards(){ $('board').querySelectorAll('.card').forEach(n=>n.remove
 function makeCard(data,save=true){
  const c={id:data.id||'c'+(++cardSeq),type:data.type||'note',text:data.text||'',x:data.x??80+cards.length*28,y:data.y??80+cards.length*24,w:data.w||270,h:data.h||150,source:data.source||'',image:data.image||''};cardSeq++;
  if(!cards.some(x=>x.id===c.id))cards.push(c);
- const el=document.createElement('article');el.className='card '+(c.type==='excerpt'?'excerpt':c.type==='image'?'imagecard':'note');el.dataset.id=c.id;el.style.cssText=`left:${c.x}px;top:${c.y}px;width:${c.w}px;height:${c.h}px`;
+ const el=document.createElement('article');el.className='card '+(c.type==='excerpt'?'excerpt':c.type==='image'?'imagecard':c.type==='textobject'?'textobject':'note');el.dataset.id=c.id;el.style.cssText=`left:${c.x}px;top:${c.y}px;width:${c.w}px;height:${c.h}px`;
  const head=document.createElement('div');head.className='cardhead';
- const kind=document.createElement('span');kind.className='cardkind';kind.textContent=c.type==='excerpt'?'PDF EXCERPT':c.type==='image'?'IMAGE SNIP':'NOTE';head.append(kind);
+ const kind=document.createElement('span');kind.className='cardkind';kind.textContent=c.type==='excerpt'?'PDF EXCERPT':c.type==='image'?'IMAGE SNIP':c.type==='textobject'?'TEXT':'NOTE';head.append(kind);
  const copy=document.createElement('button');copy.textContent='⧉';copy.title='Duplicate';copy.onclick=()=>makeCard({...c,id:'c'+(++cardSeq),x:c.x+24,y:c.y+24});head.append(copy);
  const del=document.createElement('button');del.textContent='×';del.title='Delete';del.onclick=()=>{cards=cards.filter(x=>x.id!==c.id);el.remove();$('cardCount').textContent=cards.length+' items';persist()};head.append(del);
  const body=document.createElement('div');body.className='cardbody';
  if(c.type==='image' && c.image){const im=document.createElement('img');im.src=c.image;im.alt='Clipped PDF image';body.append(im);body.contentEditable='false';}
  else {body.contentEditable='true';body.spellcheck=true;body.textContent=c.text;body.addEventListener('input',()=>{c.text=body.innerText;persist()});}
- const meta=document.createElement('div');meta.className='cardmeta';meta.textContent=c.source||'Free note';
+ const meta=document.createElement('div');meta.className='cardmeta';meta.textContent=c.source||(c.type==='textobject'?'Text object':'Freeform note');
  el.append(head,body,meta);$('board').append(el);
  let drag=null;
  head.addEventListener('pointerdown',e=>{if(e.target.tagName==='BUTTON')return;drag={x:e.clientX,y:e.clientY,left:c.x,top:c.y};head.setPointerCapture(e.pointerId)});
@@ -167,8 +170,9 @@ function drawStroke(st){
 function redrawInk(){inkCtx.clearRect(0,0,inkCanvas.width,inkCanvas.height);for(const st of inkStrokes)drawStroke(st)}
 function saveInk(){persist().catch(()=>status('Could not save ink locally'))}
 inkCanvas.addEventListener('pointerdown',e=>{
- if(!inkMode)return;
- if(e.pointerType==='touch' && e.isPrimary===false)return;
+ // Apple Pencil is a pen pointer on supported iPadOS Safari versions.
+ // Finger input is deliberately reserved for canvas navigation, not ink.
+ if(!inkMode || e.pointerType!=='pen')return;
  e.preventDefault();inkCanvas.setPointerCapture(e.pointerId);
  const pt=boardPoint(e);activeStroke={tool:inkTool,color:inkColor,width:inkWidth,points:[pt]};inkStrokes.push(activeStroke);redoStack=[];
 });
@@ -182,6 +186,11 @@ inkCanvas.addEventListener('pointermove',e=>{
 });
 function endInk(){if(activeStroke){activeStroke=null;saveInk()}}
 inkCanvas.addEventListener('pointerup',endInk);inkCanvas.addEventListener('pointercancel',endInk);inkCanvas.addEventListener('lostpointercapture',endInk);
+$('textObjectTool').onclick=()=>{
+ const r=$('workspace').getBoundingClientRect();
+ makeCard({type:'textobject',text:'Type here',x:$('workspace').scrollLeft+r.width/2-180,y:$('workspace').scrollTop+r.height/2-40,w:360,h:100});
+ setTimeout(()=>{const el=$('board').lastElementChild;const body=el?.querySelector('.cardbody');body?.focus();const range=document.createRange();range.selectNodeContents(body);window.getSelection()?.removeAllRanges();window.getSelection()?.addRange(range)},30);
+};
 penTool.onclick=()=>setInkTool('pen');highlighterTool.onclick=()=>setInkTool('highlighter');eraserTool.onclick=()=>setInkTool('eraser');
 $('inkColor').oninput=e=>{inkColor=e.target.value;setInkTool('pen')};
 $('inkWidth').oninput=e=>{inkWidth=Number(e.target.value)};
