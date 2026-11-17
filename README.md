@@ -1,17 +1,20 @@
-# pranav — PDF + writing canvas
+# pranav — PDF thinking workspace
 
-Upload these files to the root of your existing GitHub Pages repository, replacing `index.html` and updating `manifest.json` and `sw.js`.
+An iPad-first, dark-mode, browser-based PDF + freeform notes workspace.
 
-## What this build does
-- Two-pane layout: PDF on the left, freeform writing canvas on the right.
-- PDF rendering with PDF.js; selectable text layer over rendered pages.
-- Select text in the PDF and tap **Add selected text** to create a movable excerpt card on the canvas.
-- Add freeform note cards; type into them and drag their headers to move them.
-- Local IndexedDB storage, backup and restore.
-- Reuses the existing `pranav-legal-workspace` database and `items` store so earlier imported PDFs should remain available.
+## Run
+- Open `index.html` in a modern browser (PDF.js is loaded from a CDN, so the first run needs internet).
+- For PWA installation/offline shell caching, serve this folder over HTTPS or localhost.
+- On iPad Safari: open the hosted page, Share → Add to Home Screen.
 
-## Important
-- PDF.js is loaded from a CDN. Internet is needed to load the PDF engine; full offline PDF operation is not yet implemented.
-- On iPad, select text by touch and use **Add selected text**. Dragging excerpt cards by their header moves them on the canvas.
-- This prototype supports text excerpts, not yet image-region clipping, Apple Pencil ink, card resizing, or infinite-canvas zoom/pan. Those are next milestones.
-- Keep backups of important documents.
+## Included
+- Two-pane PDF and freeform workspace, adjustable split.
+- PDF page navigation and zoom.
+- Selectable PDF text layer; send selected text into movable excerpt cards.
+- Free-writing cards, edit-in-place, drag, resize, duplicate and delete.
+- IndexedDB local workspace persistence.
+- JSON workspace export.
+- Basic PWA manifest and service worker.
+
+## Important current limitations
+This is a functional foundation, not a claim of feature-for-feature LiquidText parity. In this build, PDF text extraction is supported; image-region clipping, Apple Pencil handwriting/ink, multi-document linking, cross-page excerpts, full-text search, and PDF annotation/highlight export are not implemented yet. PDF rendering and text selection depend on the PDF.js CDN being reachable.

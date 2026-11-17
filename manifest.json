@@ -1,9 +1,9 @@
 {
-  "name": "pranav \u2014 PDF and Writing Canvas",
+  "name": "pranav \u2014 PDF thinking workspace",
   "short_name": "pranav",
-  "start_url": "./",
+  "start_url": "./index.html",
   "display": "standalone",
-  "background_color": "#111019",
-  "theme_color": "#111019",
-  "description": "Personal split-screen PDF and freeform writing workspace"
+  "background_color": "#101217",
+  "theme_color": "#111318",
+  "icons": []
 }
